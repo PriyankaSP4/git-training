@@ -10,7 +10,7 @@ class BasicFibbonaciTest {
         val expectedOutputs = listOf(1,1,2,3,5,8,13,21,34)
 
         for ((input, expectedOutput) in inputs.zip(expectedOutputs)) {
-            assertThat(computeFibbonaciNumber(input)).isEqualTo(expectedOutput)
+            assertThat(computeFibonacciNumber(input)).isEqualTo(expectedOutput)
         }
     }
 }

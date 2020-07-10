@@ -10,7 +10,7 @@ class FibbonaciNegativeSeparateTest {
         val expectedOutputs = listOf(-8,5,-3,2,-1,1)
 
         for ((input, expectedOutput) in inputs.zip(expectedOutputs)) {
-            assertThat(computeNegativeFibbonachi(input)).isEqualTo(expectedOutput)
+            assertThat(computeNegativeFibonacci(input)).isEqualTo(expectedOutput)
         }
     }
 
@@ -19,7 +19,7 @@ class FibbonaciNegativeSeparateTest {
         val inputs = listOf(0,1,2,3)
         for (input in inputs) {
             try {
-                computeNegativeFibbonachi(input)
+                computeNegativeFibonacci(input)
                 assertThat(false).isEqualTo(true)
             } catch (e: Exception) {
                 //pass

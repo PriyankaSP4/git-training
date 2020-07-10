@@ -6,6 +6,6 @@ import org.junit.Test
 class FibbonaciNullTest {
     @Test
     fun fibbonaci_works_for_small_null() {
-        assertThat(computeFibbonaciNumber(null)).isEqualTo(1)
+        assertThat(computeFibonacciNumber(null)).isEqualTo(1)
     }
 }

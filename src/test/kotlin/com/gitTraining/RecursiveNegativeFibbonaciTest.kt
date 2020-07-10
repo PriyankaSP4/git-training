@@ -10,7 +10,7 @@ class RecursiveNegativeFibbonaciTest {
         val expectedOutputs = listOf(-8,5,-3,2,-1,1,0)
 
         for ((input, expectedOutput) in inputs.zip(expectedOutputs)) {
-            assertThat(computeFibbonaciNumber(input, true)).isEqualTo(expectedOutput)
+            assertThat(computeFibonacciNumber(input, true)).isEqualTo(expectedOutput)
         }
     }
 }
