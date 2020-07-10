@@ -1,22 +1,39 @@
 package com.gitTraining
 
+
 fun computeNegativeFibbonachi(position:Int): Int {
     if (position >= 0) throw Exception("potition must be smaller than zero!")
     val resultIsNegative = position % 2 == 0
     val absoluteResult = computeFibbonaciNumber(-position)
     return if (resultIsNegative) (absoluteResult * -1) else absoluteResult
 }
+fun recursiveFibbonachi(initialPosition: Int, left: Int = 0, right: Int = 1, position: Int = initialPosition): Int {
+    if (initialPosition == 0) return 0
+    if (position == 0) return left
+    if (initialPosition > 0) {
+        return recursiveFibbonachi(initialPosition, right, left + right, position - 1)
+    } else {
+        return recursiveFibbonachi(initialPosition, right - left, left, position + 1)
+    }
+}
 
+fun computeFibbonaciNumber(position: Int?, recursion: Boolean = false): Int {
 
-fun computeFibbonaciNumber(position: Int?): Int {
     var notNullPosition = position
     if (notNullPosition == null) {
         notNullPosition = 1
     }
+
+    if (recursion) return recursiveFibbonachi(notNullPosition)
+
     if (notNullPosition == 0) return 0
+
     if (notNullPosition < 0) {
-        return computeNegativeFibbonachi(notNullPosition)
+        val positionIsOdd = notNullPosition % 2 == -1
+        return if (positionIsOdd) computeFibbonaciNumber(-notNullPosition) else (computeFibbonaciNumber(-notNullPosition) * -1)
+
     }
+
     var i = 1
     var j = 1
 
@@ -32,6 +49,7 @@ fun computeFibbonaciNumber(position: Int?): Int {
     return j
 }
 
+
 fun computeFibbonachiArray(start: Int, end: Int, efficient: Boolean = false): List<Int> {
     if (!efficient) return (start..end).map { computeFibbonaciNumber(it) }
     if (start > end) return listOf()
@@ -40,4 +58,7 @@ fun computeFibbonachiArray(start: Int, end: Int, efficient: Boolean = false): Li
     (2..(end-start)).forEach { output.add(output[it-2] + output[it-1]) }
     return output
 }
+
+
+
 
